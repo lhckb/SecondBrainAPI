@@ -3,7 +3,7 @@ import UserController from "../controllers/UserController";
 
 const userController = new UserController();
 
-export default class UserRouter { 
+export default class AuthRouter { 
 
   public mapRoutes(app: Express): void {
     // app.get("/user/:id", this.userController.getUser);

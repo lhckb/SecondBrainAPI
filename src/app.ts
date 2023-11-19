@@ -1,9 +1,10 @@
-import express from 'express';
-import UserRouter from './router/userRoutes';
+import express, { json } from 'express';
+import UserRouter from './router/UserRoutes';
 
 const app = express();
+app.use(json());
 const port = 3000;
-const userRouter = new UserRouter()
+const userRouter = new UserRouter();
 
 userRouter.mapRoutes(app);
 
