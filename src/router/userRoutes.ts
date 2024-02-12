@@ -6,7 +6,7 @@ const userController = new UserController();
 export default class UserRouter { 
 
   public mapRoutes(app: Express): void {
-    // app.get("/user/:id", this.userController.getUser);
+    app.get("/user/:id", userController.getUser);
     app.post('/user', userController.postUser);
   }
 }

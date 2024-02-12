@@ -1,5 +1,7 @@
-export default class EmailFormatNotAcceptedException extends Error {
+import SecondBrainApplicationError from "./SecondBrainApplicationError";
+
+export default class EmailFormatNotAcceptedException extends SecondBrainApplicationError {
   constructor() {
-    super("E-mail format not accepted.")
+    super("E-mail format not accepted.");
   }
 }

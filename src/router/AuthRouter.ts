@@ -1,12 +1,11 @@
 import { Express } from "express";
-import UserController from "../controllers/UserController";
+import AuthController from "../controllers/AuthController";
 
-const userController = new UserController();
+const authController = new AuthController();
 
 export default class AuthRouter { 
 
   public mapRoutes(app: Express): void {
-    // app.get("/user/:id", this.userController.getUser);
-    app.post('/user', userController.postUser);
+    app.post('/login', authController.authenticate);
   }
 }
