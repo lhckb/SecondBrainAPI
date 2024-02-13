@@ -4,8 +4,8 @@ import jwt from "jsonwebtoken";
 
 export default class AuthService {
 
-  private SALT_ROUNDS: number = 10;
-  public PRIVATE_KEY: string = process.env["SECRET_KEY"];  // this shoud obviously not be here
+  private SALT_ROUNDS: number = parseInt(process.env["SALT_ROUNDS"]);
+  private PRIVATE_KEY: string = process.env["SECRET_KEY"];  // this should obviously not be here
 
   public hashPassword(password: string): string {
     return bcrypt.hashSync(password, this.SALT_ROUNDS);

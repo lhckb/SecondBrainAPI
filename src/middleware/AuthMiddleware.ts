@@ -9,8 +9,6 @@ export default class AuthMiddleware {
     next: () => Promise<void>
   ): Promise<void> {
     const token: string = req.headers.authorization?.split(' ')[1] || ' ';
-    // console.log(process.env.SECRET_KEY)
-    // console.log(token)
 
     if (token.length <= 1) {
       res.status(401).json({ message: "No valid token provided." });
