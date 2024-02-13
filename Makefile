@@ -10,6 +10,9 @@ lint: #run typescript linter
 local: #run app locally in WSL
 	npm run dev
 
+test:
+	npm run test
+
 help: #list all targets
 	grep '^[^#[:space:]].*:' Makefile
 	
