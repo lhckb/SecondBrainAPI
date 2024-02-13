@@ -4,25 +4,25 @@ import UserService from "../services/UserService";
 import UserDTO from "../DTOs/UserDTO";
 import SecondBrainApplicationError from "../exceptions/SecondBrainApplicationError";
 import IncorrectPasswordException from "../exceptions/IncorrectPasswordException";
+import { User } from "@prisma/client";
 
 const userService: UserService = new UserService();
 export default class UserController {
 
-  public async getUser(req: Request, res: Response) {
-    const userDAO = new UserDAO();
-    const reqId: string = req.params["id"];
+  public async getUsers(req: Request, res: Response): Promise<void> {
+    const userDAO: UserDAO = new UserDAO();
 
     try {
-      const user = await userDAO.getUserById(reqId);
-      res.status(200).json({ data: user });
+      const users: User[] = await userDAO.getAllUsers();
+      res.status(200).json({ data: users });
     }
     catch(error) {
       res.status(422).json({ message: error.message });
     }
   }
 
-  public async postUser(req: Request, res: Response) {
-    const reqBody = req.body;
+  public async postUser(req: Request, res: Response): Promise<void> {
+    const reqBody: User = req.body;
 
     try {
       const userCreated: UserDTO = await userService.createUser(reqBody);

@@ -1,11 +1,15 @@
-up:
+up: #run the app and DB on docker
 	docker-compose up --build
 
-down: 
+down: #erase containers
 	docker-compose down
 
-lint:
+lint: #run typescript linter
 	npm run lint
 
-local:
+local: #run app locally in WSL
 	npm run dev
+
+help: #list all targets
+	grep '^[^#[:space:]].*:' Makefile
+	

@@ -3,6 +3,11 @@ import { PrismaClient, User } from "@prisma/client";
 export default class UserDAO {
   private readonly prisma = new PrismaClient();
 
+  // TODO: test method should be deleted
+  public async getAllUsers(): Promise<User[]> | null {
+    return await this.prisma.user.findMany();
+  }
+
   public async getUserById(id: string): Promise<User> | null {
     return await this.prisma.user.findUnique({
       where: {

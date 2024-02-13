@@ -5,7 +5,7 @@ import IncorrectPasswordException from "../exceptions/IncorrectPasswordException
 import SecondBrainApplicationError from "../exceptions/SecondBrainApplicationError";
 
 export default class AuthController {
-  public async authenticate(req: Request, res: Response) {
+  public async authenticate(req: Request, res: Response): Promise<void> {
     const userService = new UserService();
     const authService = new AuthService();
 
